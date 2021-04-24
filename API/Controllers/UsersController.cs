@@ -8,9 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    
+    public class UsersController : BaseApiController
     {
         
         private readonly DataContext _context;
@@ -24,7 +23,6 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
             var users = _context.Users.ToListAsync();
-
             return await users;  
         }
 
